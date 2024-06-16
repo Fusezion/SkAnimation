@@ -8,6 +8,7 @@ import ch.njol.skript.lang.ParseContext;
 import ch.njol.skript.lang.function.Functions;
 import ch.njol.skript.lang.function.Parameter;
 import ch.njol.skript.lang.function.SimpleJavaFunction;
+import ch.njol.skript.lang.util.SimpleLiteral;
 import ch.njol.skript.registrations.Classes;
 import ch.njol.skript.registrations.DefaultClasses;
 import ch.njol.skript.registrations.EventValues;
@@ -75,6 +76,7 @@ public class Additions {
 							"set {_rotation} to left arm pose of clicked entity")
 					.since("1.0.0")
 					.cloner(rotations -> Rotations.ofDegrees(rotations.x(), rotations.y(), rotations.z()))
+					.defaultExpression(new SimpleLiteral<>(Rotations.ZERO, true))
 					.parser(new Parser<>() {
 
 						@Override
@@ -169,19 +171,22 @@ public class Additions {
 		if (ROTATIONS_CLASS != null) {
 
 			Functions.registerFunction(new SimpleJavaFunction<>("rotation", new Parameter[]{
-					new Parameter<>("x", DefaultClasses.NUMBER, true, null),
-					new Parameter<>("y", DefaultClasses.NUMBER, true, null),
-					new Parameter<>("z", DefaultClasses.NUMBER, true, null)
-			}, ROTATIONS_CLASS, true) {
+							new Parameter<>("x", DefaultClasses.NUMBER, true, null),
+							new Parameter<>("y", DefaultClasses.NUMBER, true, null),
+							new Parameter<>("z", DefaultClasses.NUMBER, true, null)
+					}, ROTATIONS_CLASS, true) {
 
-				@Override
-				public @Nullable Rotations[] executeSimple(Object[][] params) {
-					double x = ((Number) params[0][0]).doubleValue();
-					double y = ((Number) params[1][0]).doubleValue();
-					double z = ((Number) params[2][0]).doubleValue();
-					return new Rotations[]{Rotations.ofDegrees(x, y, z)};
-				}
-			});
+						@Override
+						public @Nullable Rotations[] executeSimple(Object[][] params) {
+							double x = ((Number) params[0][0]).doubleValue();
+							double y = ((Number) params[1][0]).doubleValue();
+							double z = ((Number) params[2][0]).doubleValue();
+							return new Rotations[]{Rotations.ofDegrees(x, y, z)};
+						}
+					})
+					.description("Creates a new rotation ")
+					.examples("set {_rotation} to rotation(-150,-45,0)")
+					.since("1.0.0");
 
 		}
 
