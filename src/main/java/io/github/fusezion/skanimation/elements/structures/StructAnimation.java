@@ -43,7 +43,7 @@ public class StructAnimation extends Structure {
 				.addEntryData(new VariableStringEntryData("variable", null, true))
 				.addEntryData(new TriggerEntryData("animation", null, false))
 				.build();
-		Skript.registerStructure(StructAnimation.class, entryValidator, "register [a] [new] animation [[named|with (id|name)] [%-string%]]");
+		Skript.registerStructure(StructAnimation.class, entryValidator, "(register|create) [a] [new] animation [[named|with (id|name)] [%-string%]]");
 	}
 
 	private Literal<String> animationName;
