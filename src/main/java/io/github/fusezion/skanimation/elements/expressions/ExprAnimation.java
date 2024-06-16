@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 @Name("Animation from id")
 @Description("Get an animation from an id that it was saved to")
 @Examples("set {_wavingAnimation} to animation named \"waving\"")
-@Since("INSERT VERSION")
+@Since("1.0.0")
 public class ExprAnimation extends SimpleExpression<Animation> {
 
 	static {

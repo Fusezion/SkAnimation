@@ -37,7 +37,7 @@ public class Additions {
 				.user("armou?r ?stand ?poses?")
 				.name("Armor Stand Poses")
 				.description("Represents the poses of an armor stand")
-				.since("INSERT VERSION")
+				.since("1.0.0")
 		);
 
 		Classes.registerClass(new ClassInfo<>(Animation.class, "animation")
@@ -45,7 +45,7 @@ public class Additions {
 				.name("Animation")
 				.description("Represents an animation class that was registered via the structure")
 				.examples("set {_animation} to animation \"waving\"")
-				.since("INSERT VERSION")
+				.since("1.0.0")
 				.parser(new Parser<>() {
 
 					@Override
@@ -73,7 +73,7 @@ public class Additions {
 					.examples(
 							"set {_rotation} to rotation(10,10,10)",
 							"set {_rotation} to left arm pose of clicked entity")
-					.since("INSERT VERSION")
+					.since("1.0.0")
 					.cloner(rotations -> Rotations.ofDegrees(rotations.x(), rotations.y(), rotations.z()))
 					.parser(new Parser<>() {
 

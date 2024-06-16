@@ -30,7 +30,7 @@ import org.jetbrains.annotations.Nullable;
 		"\tanimate left arm pose of clicked entity to match rotation(-120, -45, 0) with duration 0.25",
 		"\twait 0.25 seconds"
 })
-@Since("INSERT VERSION")
+@Since("1.0.0")
 public class EffAnimateEntity extends Effect {
 
 	static {

@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 @Name("Apply Animation")
 @Description("Applies a previously created animation onto an existing armor stand entity")
 @Examples("animate target entity of player with animation named \"waving\"")
-@Since("INSERT VERSION")
+@Since("1.0.0")
 public class EffApplyAnimation extends Effect {
 
 	static {

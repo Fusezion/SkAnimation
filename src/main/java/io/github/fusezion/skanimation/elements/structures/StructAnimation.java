@@ -35,7 +35,7 @@ import org.skriptlang.skript.lang.structure.Structure;
 		"\t\t\twait 0.5 seconds",
 		"\t\tanimate left leg of entity using rotation(0,0,0) with duration 1 second",
 })
-@Since("INSERT VERSION")
+@Since("1.0.0")
 public class StructAnimation extends Structure {
 
 	static {

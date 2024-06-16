@@ -29,7 +29,7 @@ import org.skriptlang.skript.lang.arithmetic.Operator;
 		"remove rotation(0,45,0) from right arm rotation of clicked entity",
 		"reset left arm pose of clicked entity"
 })
-@Since("INSERT VERSION")
+@Since("1.0.0")
 public class ExprArmorStandRotation extends PropertyExpression<LivingEntity, Rotations> {
 
 	static {
