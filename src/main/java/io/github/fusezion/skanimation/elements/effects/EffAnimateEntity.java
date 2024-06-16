@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Animate ArmorStand")
-@Description("Animation an armor stand pose to match a rotation with duration of time to animate, optionally from zero")
+@Description("Animate an armor stand pose to match a rotation with duration of time to animate, optionally from zero")
 @Examples({
 		"animate left arm pose of clicked entity using rotation(-120, -45, 0) with duration 0.5 from zero",
 		"wait 0.5 seconds",
