@@ -1,0 +1,12 @@
+name: SkAnimation
+version: '@version@'
+main: io.github.fusezion.skanimation.SkAnimation
+api-version: '1.20'
+loadbefore:
+  - SkQuery
+depend:
+  - Skript
+authors:
+  - Fusezion/Lyric
+description: SkAnimations is a skript addon all about granting animation freedom to armor stands
+website: fusezion.github.io

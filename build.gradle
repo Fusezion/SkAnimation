@@ -1,0 +1,60 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'java'
+//    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id "io.github.goooler.shadow" version "8.1.7"
+}
+
+version = '1.0.0'
+compileJava {
+    options.encoding = 'UTF-8'
+}
+def minJavaVersion = '17'
+def maxJavaVersion = '21'
+
+
+repositories {
+    mavenCentral()
+
+    maven { url = "https://repo.papermc.io/repository/maven-public/" }
+    maven { url = "https://repo.skriptlang.org/releases" }
+
+}
+
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
+    compileOnly("com.github.SkriptLang:Skript:2.8.6") { transitive = false }
+    implementation("org.bstats:bstats-bukkit:3.0.2")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ['-source', '' + minJavaVersion, '-target', '' + maxJavaVersion]
+}
+
+build {
+    dependsOn(shadowJar)
+    tasks.withType(JavaCompile).tap {
+        configureEach {
+            options.compilerArgs.add("-Xlint:unchecked")
+            options.compilerArgs.add("-Xlint:deprecation")
+        }
+    }
+}
+
+processResources {
+    filter ReplaceTokens, tokens: ["version": project.version]
+}
+
+shadowJar {
+    archiveFileName = project.name + "-" + project.version + ".jar"
+    relocate("org.bstats", "io.github.fusezion.skanimation.metrics")
+}
+
+
+// Run task to build jar to another spot
+tasks.register('server', Copy) {
+    from shadowJar
+    into 'D:/Austin/Development/TestServer/Paper-1.20.6/plugins'
+}
+

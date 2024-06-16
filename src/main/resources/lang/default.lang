@@ -1,0 +1,14 @@
+version: @version@
+
+types:
+    rotation: rotation¦s
+    animation: animation¦s
+    armorstandpose: armor¦ stand¦ pose¦s
+
+armor stand poses:
+    head: head
+    body: body
+    left_arm: left arm
+    right_arm: right arm
+    left_leg: left leg
+    right_leg: right leg
