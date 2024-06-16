@@ -4,6 +4,8 @@ import ch.njol.skript.ServerPlatform;
 import ch.njol.skript.Skript;
 import ch.njol.skript.util.Version;
 import io.github.fusezion.skanimation.api.Animation;
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -56,6 +58,12 @@ public final class SkAnimation extends JavaPlugin {
 	    // Plugin startup logic
 
     }
+
+
+	public void loadBStats() {
+		Metrics metrics = new Metrics(instance, 22282);
+		metrics.addCustomChart(new SimplePie("skript_version", () -> Skript.getVersion().toString()));
+	}
 
 	private void disablePlugin(String reason) {
 		getLogger().severe("Plugin disabling due to:\n" + reason);
