@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 @Name("All Animations")
 @Description("Retrieve all the animations or animation keys")
 @Examples("set {_animationNames::*} to all animation keys")
-@Since("INSERT NAME")
+@Since("1.0.0")
 public class ExprAllAnimations extends SimpleExpression<Object> {
 
 	static {
