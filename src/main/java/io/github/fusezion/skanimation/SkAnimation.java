@@ -55,6 +55,8 @@ public final class SkAnimation extends JavaPlugin {
 	    } catch (IOException exception) {
 			disablePlugin(exception.getCause() + "\n" + exception.getMessage());
 	    }
+
+		loadBStats();
 	    // Plugin startup logic
 
     }
